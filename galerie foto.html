@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Coaliția pentru Sănătate Respiratorie din Moldova</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: #f0f0f0;
+      margin: 0;
+    }
+
+    .home-button {
+      position: fixed;
+      top: 1rem;
+      left: 1rem;
+      width: 3rem;
+      height: 3rem;
+      background-color: #007ca3;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+      z-index: 1100;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+    .home-button:hover {
+      background-color: #005f7f;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+      gap: 1rem;
+      margin: 2rem;
+    }
+    .gallery__item {
+      position: relative;
+      cursor: pointer;
+      overflow: hidden;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgb(0, 112, 139);
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.6s ease-out forwards;
+    }
+    .gallery__image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .gallery__image__caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(0, 86, 126, 0.9);
+      color: white;
+      padding: 10px;
+      text-align: center;
+      font-weight: bold;
+      display: block;
+    }
+
+    .gallery__modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 150, 177, 0.7);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      opacity: 0;
+      transform: scale(0.8);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+    .gallery__modal img {
+      max-width: 90%;
+      max-height: 80%;
+      transition: transform 0.3s ease;
+    }
+    .gallery__modal__navigation {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 2rem;
+      color: white;
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+    }
+    .gallery__modal__navigation--prev {
+      left: 2rem;
+    }
+    .gallery__modal__navigation--next {
+      right: 2rem;
+    }
+    .gallery__modal__close {
+      position: absolute;
+      top: 2rem;
+      right: 2rem;
+      font-size: 2rem;
+      color: rgb(245, 245, 245);
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .gallery__modal.show {
+      opacity: 1;
+      transform: scale(1);
+    }
+    .gallery__modal img.show {
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+
+<a href="index.html" class="home-button" title="Acasă">
+  <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24" fill="white">
+    <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+  </svg>
+</a>
+
+<main>
+  <h1 class="title" style="color: rgb(0, 145, 170); text-align: center;">Coalitia pentru Sanatate Respiratorie din Moldova
+                <em><p><h5>Descoperă momentele importante din activitatea noastră — de la campanii de conștientizare la întâlniri cu profesioniști și pacienți din întreaga țară.</h5>
+  
+                </main>
+  <section class="gallery">
+    <div class="gallery__item">
+      <a href="11.html">
+        <img class="gallery__image" src="11.jpg" alt="A tent in the snowy mountains">
+        <div class="gallery__image__caption">Conferința Rezidenților</div>
+      </a>
+    </div>
+    <div class="gallery__item">
+      <a href="12.html">
+        <img class="gallery__image" src="12.jpg" alt="A river between the mountains">
+        <div class="gallery__image__caption">Healty Lungs for Life</div>
+      </a>
+    </div>
+    <div class="gallery__item">
+      <a href="13.html">
+        <img class="gallery__image" src="fumat.jpg" alt="Lupta împotriva fumatului">
+        <div class="gallery__image__caption">Lupta împotriva fumatului</div>
+      </a>
+    </div>
+    <div class="gallery__item">
+      <a href="14.html">
+        <img class="gallery__image" src="14.jpg" alt="Evenimentul științific">
+        <div class="gallery__image__caption">Eveniment științific dedicat rezidenților și specialiștilor</div>
+      </a>
+    </div>
+    <div class="gallery__item">
+      <a href="15.html">
+        <img class="gallery__image" src="166.jpg" alt="Ziua Mondiala a Tuberculozei">
+        <div class="gallery__image__caption">Ziua Mondiala a Tuberculozei</div>
+      </a>
+    </div>
+  </section>
+</main>
+
+<div class="gallery__modal" id="modal">
+  <button class="gallery__modal__navigation gallery__modal__navigation--prev" id="prevBtn">&#8592;</button>
+  <img src="" alt="" id="modalImg">
+  <button class="gallery__modal__navigation gallery__modal__navigation--next" id="nextBtn">&#8594;</button>
+  <button class="gallery__modal__close" id="closeBtn">&#10006;</button>
+</div>
+
+<script>
+  const galleryItems = document.querySelectorAll('.gallery__item');
+  const modal = document.getElementById('modal');
+  const modalImg = document.getElementById('modalImg');
+  const closeBtn = document.getElementById('closeBtn');
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
+
+  let currentItemIndex = 0;
+
+  function openModal(index) {
+    const image = galleryItems[index].querySelector('.gallery__image');
+    modalImg.src = image.src;
+    modalImg.alt = image.alt;
+    modal.classList.add('show');
+    modalImg.classList.add('show');
+    currentItemIndex = index;
+  }
+
+  function closeModal() {
+    modal.classList.remove('show');
+    modalImg.classList.remove('show');
+  }
+
+  function showPrev() {
+    currentItemIndex = (currentItemIndex - 1 + galleryItems.length) % galleryItems.length;
+    openModal(currentItemIndex);
+  }
+
+  function showNext() {
+    currentItemIndex = (currentItemIndex + 1) % galleryItems.length;
+    openModal(currentItemIndex);
+  }
+
+  galleryItems.forEach((item, index) => {
+    item.addEventListener('click', () => openModal(index));
+  });
+
+  closeBtn.addEventListener('click', closeModal);
+  prevBtn.addEventListener('click', showPrev);
+  nextBtn.addEventListener('click', showNext);
+
+  document.addEventListener('keyup', (event) => {
+    if (event.key === 'Escape') {
+      closeModal();
+    }
+  });
+</script>
+
+</body>
+</html>

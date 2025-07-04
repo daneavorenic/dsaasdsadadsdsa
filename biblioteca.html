@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Coaliția pentru Sănătate Respiratorie din Moldova</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #f4f9ff;
+      color: #0674a7;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .home-icon {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background-color: #007ea8;
+      padding: 10px;
+      border-radius: 50%;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+      transition: background 0.3s ease, transform 0.3s ease;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+    }
+
+    .home-icon:hover {
+      background-color: #005f7f;
+      transform: scale(1.1);
+    }
+
+    .home-icon svg {
+      width: 24px;
+      height: 24px;
+      fill: white;
+    }
+
+    main {
+      flex: 1;
+      padding: 60px 20px;
+      max-width: 1000px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 3rem;
+      color: #03719c;
+      margin-bottom: 1rem;
+    }
+
+    .section h2 {
+      font-size: 1.8rem;
+      color: #007286;
+      margin-bottom: 0.5rem;
+      text-align: center;
+    }
+
+    .section p {
+      font-size: 1.1rem;
+      color: #047a97;
+      margin-bottom: 1.5rem;
+    }
+
+    .info-block {
+      background: #ffffff;
+      border-left: 6px solid #00b0cf;
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      box-shadow: 0 10px 20px rgb(1, 110, 153);
+      transition: transform 0.4s ease, box-shadow 0.4s ease, background 0.4s ease;
+    }
+
+    .info-block:hover {
+      transform: scale(1.03);
+      box-shadow: 0 20px 40px rgb(2, 111, 214);
+      background: #e6f7ff;
+    }
+
+    /* Секция "Fondatorii" */
+    .founders-info-block {
+      max-width: 900px;
+      margin: 40px auto 60px auto;
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      color: #333;
+    }
+
+    .founders-info-block h2 {
+      color: #2c3e50;
+      text-align: center;
+    }
+
+    .founders-info-block p {
+      line-height: 1.6;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .founders-info-block p.emphasis {
+      font-style: italic;
+      margin-bottom: 30px;
+    }
+
+    .founder {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .founder img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .founder p {
+      flex: 1;
+      margin: 0;
+      color: #0674a7;
+      font-size: 1.1rem;
+      line-height: 1.4;
+      display: flex;
+      align-items: center;
+    }
+
+    .founder p em {
+      font-style: normal;
+      font-weight: 600;
+      margin-left: 6px;
+      color: #00475e;
+    }
+
+    footer {
+      background: #005b80;
+      color: #ffffff;
+      text-align: center;
+      padding: 20px 10px;
+      font-size: 0.95rem;
+    }
+
+    .section {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease-out;
+    }
+
+    .section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2rem;
+      }
+
+      .section h2 {
+        font-size: 1.5rem;
+      }
+
+      .home-icon {
+        padding: 8px;
+      }
+
+      .home-icon svg {
+        width: 20px;
+        height: 20px;
+      }
+
+      .founder {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .founder p {
+        margin-top: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Домик -->
+  <a href="index.html" class="home-icon" title="Înapoi la pagina principală">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+      <path d="M541 229.2L320 43.6 35 229.2c-10.2 7.6-11.6 21.8-3.1 31L64 288.2V464c0 26.5 21.5 48 48 48h368c26.5 0 48-21.5 48-48V288.2l32.1-27.9c8.5-9.2 7.1-23.4-3.1-31zM384 464h-192V320h192v144z"/>
+    </svg>
+  </a>
+
+  <main>
+    <h1>Explorează o colecție extinsă de resurse validate științific pentru cadre medicale, medici rezideți și studenți — toate menite să sprijine o abordare modernă a sănătății respiratorii</h1>
+
+    <div class="section" id="about">
+
+  <a href="1.pdf" download style="text-decoration: none; color: inherit; display: block;">
+    <div class="info-block">
+      <h2>Carte</h2>
+      <p>Alergie alimentară</p>
+    </div>
+  </a>
+
+  <a href="8.pdf" download style="text-decoration: none; color: inherit; display: block;">
+    <div class="info-block">
+      <h2>Carte</h2>
+      <p>Astmul bronșic la copil</p>
+    </div>
+  </a>
+
+
+       <a href="2.pdf" download style="text-decoration: none; color: inherit; display: block;">
+    <div class="info-block">
+      <h2>Carte</h2>
+      <p>Astmul bronșic la adult</p>
+    </div>
+  </a>
+     <a href="3.pdf" download style="text-decoration: none; color: inherit; display: block;">
+    <div class="info-block">
+      <h2>Carte</h2>
+      <p>Aspergiloza</p>
+    </div>
+  </a>
+  <a href="4.pdf" download style="text-decoration: none; color: inherit; display: block;">
+    <div class="info-block">
+      <h2>Carte</h2>
+      <p>Bronșiectaziile la adult</p>
+    </div>
+  </a>
+  <a href="5.pdf" download style="text-decoration: none; color: inherit; display: block;">
+    <div class="info-block">
+      <h2>Carte</h2>
+      <p>Tuberculoza la copil</p>
+    </div>
+  </a>
+  <a href="6.pdf" download style="text-decoration: none; color: inherit; display: block;">
+    <div class="info-block">
+      <h2>Carte</h2>
+      <p>Aspergiloza pulmonară la copii
+</p>
+    </div>
+  </a>
+  <a href="7.pdf" download style="text-decoration: none; color: inherit; display: block;">
+    <div class="info-block">
+      <h2>Carte</h2>
+      <p>Tuberculoza la adult</p>
+    </div>
+  </a>
+  <a href="7.pdf" download style="text-decoration: none; color: inherit; display: block;">
+    <div class="info-block">
+      <h2>Carte</h2>
+      <p>Sindromul de apnee obstructivă în somn</p>
+    </div>
+  </a>
+
+  
+  
+
+    <!-- Секция с Fondatorii -->
+    <div class="founders-info-block section" id="founders">
+      
+
+  <footer>
+    © 2025 Coaliția pentru Sănătate Respiratorie din Moldova.
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, {
+      threshold: 0.2
+    });
+
+    document.querySelectorAll('.section').forEach(section => {
+      observer.observe(section);
+    });
+  </script>
+
+</body>
+</html>

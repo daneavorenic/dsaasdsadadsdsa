@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title></title>
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      background: #f2f2f2;
+    }
+
+    .cards-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding: 40px;
+    }
+
+    .card-grid-space {
+      width: 300px;
+    }
+
+    .card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      border-radius: 16px;
+      background: white;
+      color: #333;
+      text-decoration: none;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      overflow: hidden;
+      transition: transform 0.3s ease;
+      height: auto;
+      padding-bottom: 20px;
+    }
+
+    .card:hover {
+      transform: scale(1.03);
+    }
+
+    .card img {
+      width: 100%;
+      max-height: 200px;
+      object-fit: contain;
+      background: #fff;
+    }
+
+    .card-content {
+      padding: 20px;
+      text-align: center;
+      width: 100%;
+    }
+
+    .card-content h1 {
+      margin: 0 0 10px;
+      font-size: 18px;
+    }
+
+    .card-content p {
+      margin: 0 0 10px;
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    .tags {
+      margin-top: 10px;
+    }
+
+    .tag {
+      background: #007bff;
+      color: white;
+      padding: 6px 12px;
+      border-radius: 5px;
+      font-size: 14px;
+      text-transform: uppercase;
+      display: inline-block;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .tag:hover {
+      background: #0056b3;
+    }
+
+    .num {
+      text-align: center;
+      font-weight: bold;
+      margin-bottom: 10px;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+
+  <section class="cards-wrapper">
+
+    <div class="card-grid-space">
+      <div class="num">01</div>
+      <a class="card" href="#">
+        <img src="q.png" alt="Student" />
+        <div class="card-content">
+          <h1>Student</h1>
+          <p>50 lei/an</p>
+          <div class="tags">
+            <div class="tag">pay</div>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <div class="card-grid-space">
+      <div class="num">02</div>
+      <a class="card" href="#">
+        <img src="w.png" alt="Medic rezident" />
+        <div class="card-content">
+          <h1>Medic rezident</h1>
+          <p>100 lei/an</p>
+          <div class="tags">
+            <div class="tag">pay</div>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <div class="card-grid-space">
+      <div class="num">03</div>
+      <a class="card" href="#">
+        <img src="e.png" alt="Medic specialist" />
+        <div class="card-content">
+          <h1>Medic specialist</h1>
+          <p>200 lei/an</p>
+          <div class="tags">
+            <div class="tag">pay</div>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <div class="card-grid-space">
+      <div class="num">04</div>
+      <a class="card" href="#">
+        <img src="r.png" alt="Membru CRH – ERS" />
+        <div class="card-content">
+          <h1>Membru CRH – Afil. Internațional (ERS)</h1>
+          <p>700 lei/an</p>
+          <div class="tags">
+            <div class="tag">pay</div>
+          </div>
+        </div>
+      </a>
+    </div>
+
+  </section>
+
+</body>
+</html>

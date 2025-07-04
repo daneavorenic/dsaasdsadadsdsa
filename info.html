@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Breathe Conference — Breathe Conference</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background: #ffffff;
+      text-align: center;
+      margin: 0;
+    }
+    header {
+      background-color: #007bff;
+      color: white;
+      padding: 25px 15px;
+      font-size: 28px;
+      font-weight: bold;
+      border-radius: 8px;
+      max-width: 400px;
+      margin: 0 auto 30px auto;
+      box-shadow: 0 4px 10px rgba(0,123,255,0.4);
+      user-select: none;
+    }
+    .photo-container {
+      max-width: 400px;
+      margin: 0 auto;
+      background: white;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .photo-container img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      display: block;
+      margin: 0 auto 15px;
+    }
+    .description {
+      font-size: 18px;
+      color: #333;
+      margin-bottom: 15px;
+      text-align: left; /* Можно по желанию */
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      background-color: #007bff;
+      border: none;
+      border-radius: 5px;
+      color: white;
+      transition: background-color 0.3s, transform 0.2s;
+      outline-offset: 2px;
+    }
+    button:hover {
+      background-color: #0056b3;
+      transform: scale(1.05);
+    }
+    button:active {
+      background-color: #003f7f;
+      transform: scale(0.98);
+    }
+    .extra-info {
+      margin-top: 15px;
+      font-size: 16px;
+      color: #555;
+      
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: max-height 0.5s ease, opacity 0.5s ease;
+    }
+    .extra-info.show {
+      max-height: 200px; /* достаточно чтобы показать текст */
+      opacity: 1;
+    }
+
+    /* Домик - фиксированный в левом верхнем углу */
+    .home-icon {
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      width: 36px;
+      height: 36px;
+      background-color: #007bff;
+      border-radius: 6px;
+      box-shadow: 0 2px 8px rgba(0,123,255,0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 1000;
+      transition: background-color 0.3s;
+    }
+    .home-icon:hover {
+      background-color: #0056b3;
+    }
+    .home-icon svg {
+      fill: white;
+      width: 24px;
+      height: 24px;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Домик-ссылка на главную страницу -->
+<a href="index.html" class="home-icon" title="Главная страница">
+  <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24" >
+    <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+  </svg>
+</a>
+
+  <div class="photo-container">
+    <img src="info.png" alt="Breathe Conference" />
+    <div class="description">
+      Conferința Breathe este un eveniment anual care reunește lideri în medicina respiratorie și a somnului. Cu un accent pe avansarea cunoștințelor în astm, BPOC și tulburările de somn, conferința este ocazia ta de a rămâne în avangarda pneumologiei.
+      Alătură-te nouă!
+    </div>
+    <button id="toggleInfoBtn">
+      <a href="https://breatheconference.eu/" style="color: white; text-decoration: none;">Breathe Conference</a>
+    </button>
+
+    <div class="extra-info" id="extraInfo">
+      Breathe Conference
+    </div>
+  </div>
+
+  <script>
+    const btn = document.getElementById('toggleInfoBtn');
+    const info = document.getElementById('extraInfo');
+
+    btn.addEventListener('click', () => {
+      info.classList.toggle('show');
+      if (info.classList.contains('show')) {
+        btn.textContent = 'Breathe Conference';
+      } else {
+        btn.textContent = 'Breathe Conference';
+      }
+    });
+  </script>
+
+</body>
+</html>

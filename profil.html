@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Achitare</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffffff;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        h1 {
+            color: #0084ac;
+        }
+
+        button {
+            background-color: #00aec5; /* Зеленый */
+            color: white;
+            font-size: 18px;
+            padding: 15px 32px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+            box-shadow: 0 4px 8px rgb(0, 133, 167);
+        }
+
+        button:hover {
+            transform: scale(1.1); /* Увеличение кнопки при наведении */
+            background-color: #0096aa;
+        }
+
+        button:active {
+            transform: scale(0.98); /* Легкое уменьшение при нажатии */
+            background-color: #00b5e2;
+        }
+
+        p {
+            font-size: 18px;
+            color: #0093c0;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Achiatea tarifului</h1>
+    <p>Confirma</p>
+    <button onclick="pay()">Achita</button>
+
+    <script>
+        function pay() {
+            // Анимация для кнопки перед редиректом
+            const button = document.querySelector('button');
+            button.style.transform = 'scale(0.9)';
+            button.style.backgroundColor = '#388e3c';
+            
+            setTimeout(function() {
+                alert("Оплата прошла успешно!");
+                window.location.href = "register.html"; // Редирект на страницу регистрации
+            }, 300); // Задержка для анимации
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap");
+* {box-sizing: border-box; margin: 0; padding: 0}
+
+body {display: flex; justify-content: center; align-items: center; min-height: 100vh; background: #ffffff; font-family: "Roboto Flex", sans-serif}
+
+.section {width: 90%; max-width: 800px; padding: 20px; text-align: center}
+
+.word-reveal > span {display: inline-block; opacity: 0; transform: translateY(50px); animation: revealWord 0.8s ease-out forwards; margin-right: 0.3em}
+
+@keyframes revealWord {
+  from {opacity: 0; transform: translateY(50px)}
+  to {opacity: 1; transform: translateY(0)}
+}
+
+p {font-size: clamp(1.2rem, 4vw, 3rem); color: #000000; line-height: 1}

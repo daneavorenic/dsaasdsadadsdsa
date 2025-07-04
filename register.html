@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Formular</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #ffffff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      margin: 0;
+    }
+
+    h1 {
+      color: #0095af;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    #registerForm {
+      background-color: white;
+      padding: 40px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgb(0, 129, 180);
+      width: 100%;
+      max-width: 500px;
+      display: flex;
+      flex-direction: column;
+      box-sizing: border-box;
+    }
+
+    input, select, textarea {
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-size: 16px;
+      width: 100%;
+      transition: all 0.3s ease;
+      box-sizing: border-box;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      border-color: #00a1b6;
+      outline: none;
+      box-shadow: 0 0 5px rgba(76, 175, 80, 0.6);
+    }
+
+    button {
+      background-color: #00abc2;
+      color: white;
+      font-size: 18px;
+      padding: 15px 32px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: transform 0.3s ease, background-color 0.3s ease;
+      margin-top: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      width: 100%;
+    }
+
+    button:hover {
+      transform: scale(1.1);
+      background-color: #00a2be;
+    }
+
+    button:active {
+      transform: scale(0.98);
+      background-color: #008bcc;
+    }
+
+    #message {
+      color: red;
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    label {
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    @media (max-width: 600px) {
+      #registerForm {
+        padding: 20px;
+      }
+
+      input, select, textarea {
+        font-size: 14px;
+      }
+
+      button {
+        padding: 12px 24px;
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <h1>Devin-o membru</h1>
+    <form id="registerForm">
+      <label for="username">Nume Prenume:</label>
+      <input type="text" id="username" required>
+
+      <label for="title">Funcția / Titlul profesional:</label>
+      <select id="title" required>
+        <option value="" disabled selected>Alege funcția/titlul profesional</option>
+        <option value="medic rezident">Medic rezident</option>
+        <option value="student">Student</option>
+        <option value="asistent universitar">Asistent universitar</option>
+        <option value="specialist">Specialist</option>
+        <option value="altul">Altul</option>
+      </select>
+
+      <input type="text" id="customTitle" placeholder="Scrie altă funcție" style="display: none;">
+
+      <label for="birthdate">Data nașterii:</label>
+      <input type="date" id="birthdate" required>
+
+      <label for="email">Adresa de e-mail:</label>
+      <input type="email" id="email" required>
+
+      <label for="phone">Număr de telefon:</label>
+      <input type="tel" id="phone">
+
+      <label for="institution">Instituția unde activați / studiați:</label>
+      <input type="text" id="institution" required>
+
+      <label for="location">Localitatea (oraș/comună):</label>
+      <input type="text" id="location" required>
+
+      <label for="motivation">Motivația participării:</label>
+      <textarea id="motivation" rows="4" required></textarea>
+
+      <label>
+        <input type="checkbox" id="consent" required>
+        Sunt de acord ca datele mele să fie prelucrate de către Coaliția pentru Sănătate Respiratorie din Moldova.
+      </label>
+
+      <input type="password" id="password" placeholder="Parolă" required>
+
+      <button type="submit">Crează contul</button>
+    </form>
+    <div id="message"></div>
+  </div>
+
+  <script>
+    document.getElementById("title").addEventListener("change", function () {
+      const customInput = document.getElementById("customTitle");
+      if (this.value === "altul") {
+        customInput.style.display = "block";
+        customInput.required = true;
+      } else {
+        customInput.style.display = "none";
+        customInput.required = false;
+      }
+    });
+
+    document.getElementById("registerForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      const requiredFields = [
+        "username", "birthdate", "email", "institution",
+        "location", "motivation", "password"
+      ];
+
+      let formIsValid = true;
+
+      requiredFields.forEach(id => {
+        const field = document.getElementById(id);
+        if (!field.value.trim()) {
+          formIsValid = false;
+          field.style.border = "2px solid red";
+        } else {
+          field.style.border = "";
+        }
+      });
+
+      const title = document.getElementById("title").value;
+      if (!title) {
+        formIsValid = false;
+        document.getElementById("title").style.border = "2px solid red";
+      } else {
+        document.getElementById("title").style.border = "";
+      }
+
+      if (title === "altul") {
+        const customTitle = document.getElementById("customTitle");
+        if (!customTitle.value.trim()) {
+          formIsValid = false;
+          customTitle.style.border = "2px solid red";
+        } else {
+          customTitle.style.border = "";
+        }
+      }
+
+      if (!document.getElementById("consent").checked) {
+        document.getElementById("message").textContent = "Trebuie să fii de acord cu prelucrarea datelor!";
+        formIsValid = false;
+      } else {
+        document.getElementById("message").textContent = "";
+      }
+
+      if (!formIsValid) return;
+
+      const user = {
+        username: document.getElementById("username").value,
+        title: (title === "altul")
+          ? document.getElementById("customTitle").value
+          : title,
+        birthdate: document.getElementById("birthdate").value,
+        email: document.getElementById("email").value,
+        phone: document.getElementById("phone").value,
+        institution: document.getElementById("institution").value,
+        location: document.getElementById("location").value,
+        motivation: document.getElementById("motivation").value,
+        password: document.getElementById("password").value
+      };
+
+      if (localStorage.getItem(user.email)) {
+        document.getElementById("message").textContent = "Utilizatorul cu acest e-mail deja există!";
+        return;
+      }
+
+      localStorage.setItem(user.email, JSON.stringify(user));
+      alert("Cont creat cu succes!");
+      window.location.href = "card.html";
+    });
+  </script>
+</body>
+</html>
